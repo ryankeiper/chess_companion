@@ -4,11 +4,17 @@ class User < ActiveRecord::Base
 	before_create :create_remember_token
 	before_save :normalize_fields
 
+	# One to many relationship with games
+	has_many :games
+
 	# Validate name:
 	validates :name, presence: true, length: {maximum: 50}
 
 	# Validate email address:
 	validates :email, presence: true, uniqueness: {case_sensitive: false}, format: { with: /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i }
+
+	# Validate USCF id:
+	validates :uscf_id, presence: true, uniqueness: true
 
 	# Validate password length:
 	validates :password, length: {minimum: 8}
