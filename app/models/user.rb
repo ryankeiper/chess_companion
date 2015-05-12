@@ -4,8 +4,8 @@ class User < ActiveRecord::Base
 	before_create :create_remember_token
 	before_save :normalize_fields
 
-	# One to many relationship with games
-	has_many :games
+	# One to many relationship with tournaments
+	has_many :tournaments
 
 	# Validate name:
 	validates :name, presence: true, length: {maximum: 50}

@@ -40,7 +40,8 @@ class UsersController < ApplicationController
 			:email,
 			:uscf_id,
 			:password,
-			:password_confirmation
+			:password_confirmation,
+			:admin
 		)
 	end
 end

@@ -2,31 +2,31 @@ class GamesController < ApplicationController
 	before_filter :require_signin
 
 	def index
-		@games = current_user.games.all
+		@games = current_user.tournaments.games.all
 	end
 
 	def show
-		@game = Game.find(params[:id])
+		@game = current_user.tournaments.games.find(params[:id])
 	end
 
 	def new
-		@game = Game.new
+		@game = current_user.tournaments.games.new
 	end
 
 	def create
-		@game = Game.new
+		@game = current_user.tournaments.games.new
 	end
 
 	def edit
-		@game = Game.find(params[:id])
+		@game = current_user.tournaments.games.find(params[:id])
 	end
 
 	def update
-		@game = Game.find(params[:id])
+		@game = current_user.tournaments.games.find(params[:id])
 	end
 
 	def destroy
-		@game = Game.find(params[:id])
+		@game = current_user.tournaments.games.find(params[:id])
 	end
 
 end
