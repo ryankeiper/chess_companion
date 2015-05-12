@@ -14,7 +14,7 @@
 	<%= f.label :email %>
 	<%= f.text_field :email %>
 
-	<%= f.label :uscf_id %>
+	<%= f.label :uscf_id, 'USCF ID' %>
 	<%= f.number_field :uscf_id %>
 
 	<%= f.label :password %>
@@ -26,3 +26,5 @@
 	<%= f.submit 'Submit', id: 'submit' %>
 
 <% end %>
+
+Or go to the <%= link_to "Sign In", signin_path %> page.

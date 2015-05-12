@@ -51,7 +51,7 @@ module SessionsHelper
 	def require_signin
 		if !signed_in?
 			store_location
-			flash[:notice] = "Please sign in."
+			flash[:notice] = "Please sign in to access your account."
 			redirect_to signin_url
 		end
 	end
