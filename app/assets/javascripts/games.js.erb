@@ -1,0 +1,10 @@
+$(document).ready(function(){
+  
+  var cfg = {
+	pieceTheme: '<%= image_path("/assets/{piece}.png") %>',
+	position: 'start'
+  };
+
+  var board1 = new ChessBoard('board1', cfg);
+	
+})

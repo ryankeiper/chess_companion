@@ -1,28 +1,29 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Link to ERD:
 
-Things you may want to cover:
+https://www.lucidchart.com/invitations/accept/db63fccf-8597-497d-a0e6-fed2103023dd
 
-* Ruby version
+User Stories:
 
-* System dependencies
+A user should be able to create an account, log into their account, have their account remember all of their tournaments and games, and log out of their account when done.
 
-* Configuration
+A user should only be able to access their account when logged in.
 
-* Database creation
+The user should be able to browse through tournaments that they have played in recently on the left-hand column of the page.
 
-* Database initialization
+When a tournament is selected, the left-hand column should display all of the user's games from that tournament without the page reloading.
 
-* How to run the test suite
+When one of the games is selected, it should appear on the chessboard, available for the user to scroll through and view the moves, as well as viewing the game pgn and other relevant details.
 
-* Services (job queues, cache servers, search engines, etc.)
+When a player leaves a game to look at another and then returns to that game, it should remain on the position where the user left it.
 
-* Deployment instructions
+A player should have the option to enter new tournaments from the tournaments index.
 
-* ...
+A player should be able to make a series of moves on the chessboard, which the application will remember and can store as a new game in the database asynchronously.
 
+If time permits:
 
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+A player should be able to see their current national rating, as pulled from the USCF website.
+
+A player should have the option to pull tournament data directly from the USCF website to their app each time they take place in a new nationally rated tournament.

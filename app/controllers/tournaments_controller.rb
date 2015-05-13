@@ -14,7 +14,14 @@ class TournamentsController < ApplicationController
 	end
 
 	def create
-		@tournament = current_user.tournaments.new
+		@tournament = current_user.tournaments.new(tournament_params)
+		@tournament.save!
+
+		respond_to do |format|
+		  format.html {redirect_to user_tournaments_path}
+		  format.js # Defaults to rendering tournaments/create.js.erb
+		end
+
 	end
 
 	def edit
@@ -27,5 +34,17 @@ class TournamentsController < ApplicationController
 
 	def destroy
 		@tournament = current_user.tournaments.find(params[:id])
+		@tournament.destroy
+		respond_to do |format|
+		  format.html {redirect_to user_tournaments_path}
+		  format.js
+		end
 	end
+
+	private
+
+	def tournament_params
+		params.require(:tournament).permit(:event, :location, :date)
+	end
+
 end

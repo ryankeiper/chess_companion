@@ -11,6 +11,9 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
+//= require chess.min
+//= require chessboard-0.3.0
 //= require_tree .
+//= require turbolinks

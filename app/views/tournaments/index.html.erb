@@ -1,0 +1,28 @@
+<div class="sidebar">
+  <ol>
+	<%= render @tournaments %>
+  </ol>
+
+  <p>Add a <%= link_to "new tournament?", "#", id: "tourn-link" %>
+
+  <%= form_for [current_user, current_user.tournaments.new], html: {class: 'new-tourn'}, remote: true do |f| %>
+  	<fieldset>
+  		<%= f.label :event %>
+		<%= f.text_field :event, class: "tournament-field" %>
+
+		<%= f.label :location %>
+		<%= f.text_field :location, class: "tournament-field" %>
+
+		<%= f.label :date %>
+		<%= f.text_field :date, class: "tournament-field" %>
+
+		<%= f.submit 'Save', id: 'submit' %>
+  	</fieldset>
+  <% end %>
+  
+  <div class="game-board">
+
+	<%= render "games/game_board" %>
+
+  </div>
+</div>

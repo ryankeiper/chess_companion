@@ -8,6 +8,7 @@
 <% end %>
 
 <%= form_for @user do |f| %>
+  <fieldset>
 	<%= f.label :name %>
 	<%= f.text_field :name %>
 
@@ -27,7 +28,7 @@
 	<%= f.check_box :admin, class: 'secret' %>
 
 	<%= f.submit 'Submit', id: 'submit' %>
-
+  </fieldset>
 <% end %>
 
 Or go to the <%= link_to "Sign In", signin_path %> page.

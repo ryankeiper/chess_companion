@@ -1,0 +1,9 @@
+#board1 {
+	width: 400px;
+}
+
+.game-board {
+	position: relative;
+	top: -300px;
+	left: 375px;
+}
