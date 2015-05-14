@@ -1,5 +1,3 @@
-<li>Event: <%= link_to tournament.event, "#", class: "tournament" %>
-	<%= button_to "delete", "#" %>
-
-
+<li>Event: <%= link_to tournament.event, user_tournament_games_path(@user, tournament), remote: true, class: "tournament" %>
+	<%= button_to "delete", user_tournament_path(@user, tournament), method: :delete, class: "del-tourn" %>
 </li>

@@ -2,6 +2,7 @@ class TournamentsController < ApplicationController
 	before_filter :require_signin
 
 	def index
+		@user = current_user
 		@tournaments = current_user.tournaments.all
 	end
 
@@ -14,12 +15,14 @@ class TournamentsController < ApplicationController
 	end
 
 	def create
+		@user = current_user
 		@tournament = current_user.tournaments.new(tournament_params)
 		@tournament.save!
 
 		respond_to do |format|
-		  format.html {redirect_to user_tournaments_path}
-		  format.js # Defaults to rendering tournaments/create.js.erb
+		  format.html {redirect_to user_tournaments_path(current_user)}
+		  format.json {render json: @tournament}
+		  format.js
 		end
 
 	end
@@ -33,11 +36,12 @@ class TournamentsController < ApplicationController
 	end
 
 	def destroy
+		@user = current_user
 		@tournament = current_user.tournaments.find(params[:id])
 		@tournament.destroy
 		respond_to do |format|
 		  format.html {redirect_to user_tournaments_path}
-		  format.js
+		  format.js   
 		end
 	end
 

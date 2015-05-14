@@ -1,5 +1,5 @@
 <div class="sidebar">
-  <ol>
+  <ol class="tournaments">
 	<%= render @tournaments %>
   </ol>
 
@@ -8,21 +8,26 @@
   <%= form_for [current_user, current_user.tournaments.new], html: {class: 'new-tourn'}, remote: true do |f| %>
   	<fieldset>
   		<%= f.label :event %>
-		<%= f.text_field :event, class: "tournament-field" %>
+		  <%= f.text_field :event, class: "tournament-field" %>
 
-		<%= f.label :location %>
-		<%= f.text_field :location, class: "tournament-field" %>
+		  <%= f.label :location %>
+		  <%= f.text_field :location, class: "tournament-field" %>
 
-		<%= f.label :date %>
-		<%= f.text_field :date, class: "tournament-field" %>
+		  <%= f.label :date %>
+		  <%= f.text_field :date, class: "tournament-field" %>
 
-		<%= f.submit 'Save', id: 'submit' %>
+		  <%= f.submit 'Save', id: 'submit' %>
   	</fieldset>
   <% end %>
   
-  <div class="game-board">
+</div>
 
-	<%= render "games/game_board" %>
+<div class="gamebar">
+  <ol></ol>
+</div>
 
-  </div>
+<div class="game-board">
+
+  <%= render "games/game_board" %>
+
 </div>

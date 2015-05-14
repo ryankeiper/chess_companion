@@ -3,6 +3,10 @@ li .button_to {
 	display: none;
 }
 
+li:hover .button_to {
+	display: inline;
+}
+
 .sidebar {
-	width: 30%;
+	width: 40%;
 }

@@ -2,7 +2,13 @@ class GamesController < ApplicationController
 	before_filter :require_signin
 
 	def index
-		@games = current_user.tournaments.games.all
+		@user = current_user
+		@tournament = current_user.tournaments.find(params[:tournament_id])
+		@games = @tournament.games.all
+
+		respond_to do |format|
+		  format.js
+		end
 	end
 
 	def show
