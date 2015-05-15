@@ -7,28 +7,30 @@
 </ul>
 <% end %>
 
+<h1>Welcome to Chess Companion!</h1>
+
 <%= form_for @user do |f| %>
-  <fieldset>
+  
 	<%= f.label :name %>
-	<%= f.text_field :name %>
+	<%= f.text_field :name %><br>
 
 	<%= f.label :email %>
-	<%= f.text_field :email %>
+	<%= f.text_field :email %><br>
 
 	<%= f.label :uscf_id, 'USCF ID' %>
-	<%= f.number_field :uscf_id %>
+	<%= f.number_field :uscf_id %><br>
 
 	<%= f.label :password %>
-	<%= f.password_field :password %>
+	<%= f.password_field :password %><br>
 
 	<%= f.label :password_confirmation, 'Confirm Password' %>
-	<%= f.password_field :password_confirmation %>
+	<%= f.password_field :password_confirmation %><br>
 
 	<%= f.label :admin, 'Admin', class: 'secret' %>
 	<%= f.check_box :admin, class: 'secret' %>
 
 	<%= f.submit 'Submit', id: 'submit' %>
-  </fieldset>
+  
 <% end %>
 
 Or go to the <%= link_to "Sign In", signin_path %> page.

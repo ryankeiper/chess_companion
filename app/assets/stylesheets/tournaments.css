@@ -6,7 +6,10 @@ li .button_to {
 li:hover .button_to {
 	display: inline;
 }
-
+.container {
+	width: 850px;
+}
 .sidebar {
-	width: 40%;
+	width: 450px;
+	float: left;
 }

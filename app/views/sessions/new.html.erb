@@ -4,11 +4,11 @@
 
 <%= form_for :session, url: sessions_path do |f| %>
 	<%= f.label :email %>
-	<%= f.text_field :email %>
+	<%= f.text_field :email %><br>
 
 	<%= f.label :password %>
 	<%= f.password_field :password %>
 
-	<%= f.submit 'Sign in', id: 'signin' %>
+	<%= f.submit 'Sign in', id: 'signin' %><br>
 <% end %>
 Or, <%= link_to "Click Here", signup_path %> to create a new account.

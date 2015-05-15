@@ -1,3 +1,5 @@
+// Dynamically appends any newly created tournaments to the list without
+// needing to refresh the page
 $('.sidebar ol').append("<%= j render @tournament %>");
 $('.tournament-field').val("");
 $('.new-tourn').fadeToggle();

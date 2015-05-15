@@ -1,1 +1,2 @@
-<li><%= link_to "Round #{game.round}", "#", data: {pgn: game.pgn}, class: "game-link" %> <%= game.white %> vs. <%= game.black %></li>
+<!-- Generates each game as a link in a list item. Each link contains the data that JS will need to pass the game information to the gameboard when clicked -->
+<li><%= link_to "Round #{game.round}", "#", data: {round: game.round, white: game.white, whiterating: game.white_rating, black: game.black, blackrating: game.black_rating, pgn: game.pgn}, class: "game-link" %> <%= game.white %> vs. <%= game.black %></li>

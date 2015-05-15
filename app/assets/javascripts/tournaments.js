@@ -20,7 +20,8 @@ $(document).ready(function(){
 		})
 	})
 
-	$('.tournament').on("click", function(event){
+	// Makes each tournament link transition from tournament to game view
+	$('.sidebar').on("click", '.tournament', function(event){
 		event.preventDefault();
 		$('.gamebar').fadeToggle();
 		$('.sidebar').fadeToggle();

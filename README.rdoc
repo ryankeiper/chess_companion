@@ -1,5 +1,16 @@
 == README
 
+Setup Instructions:
+
+1. Fork and clone this repo locally
+2. From the command line, run bundle install
+3. Run rake db:create
+4. Run rake db:migrate
+5. Run rails s
+6. Open the app, and create a new user
+7. Once an initial user is in the database, run rake db:seed
+8. Refresh the app
+
 Link to ERD:
 
 https://www.lucidchart.com/invitations/accept/db63fccf-8597-497d-a0e6-fed2103023dd

@@ -1,3 +1,4 @@
+// Dynamically generates each game in the list of games under a certain tournament
 $(".gamebar ol").prepend('<p><a href="#" class="back-tourn">Back to tournaments list</a></p>')
 $(".gamebar ol").prepend('<p><%= @tournament.location %>, <%= @tournament.date %></p>')
 $(".gamebar ol").prepend('<h3><%= @tournament.event %></h3>')

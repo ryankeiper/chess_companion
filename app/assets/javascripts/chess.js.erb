@@ -1,5 +1,8 @@
 $(document).ready(function(){
 
+	var newHistory;
+	var newCount;
+
 	var board,
 	  game = new Chess(),
 	  statusEl = $('#status'),
@@ -81,13 +84,79 @@ $(document).ready(function(){
 	
 	updateStatus();
 
+	// Clicking a game loads it on the gameboard
 	$('.gamebar').on("click", '.game-link', function(event){
 		event.preventDefault();
+		document.querySelector('.round').innerHTML = "Round " + $(this).data('round') + ":";
+		document.querySelector('.white').innerHTML = $(this).data('white') + " ";
+		document.querySelector('.white-elo').innerHTML = $(this).data('whiterating') + " vs. ";
+		document.querySelector('.black').innerHTML = $(this).data('black') + " ";
+		document.querySelector('.black-elo').innerHTML = $(this).data('blackrating');
 		game.load_pgn($(this).data('pgn'));
 		board.position(game.fen());
+		newHistory = game.history();
+		newCount = game.history().length;
 		updateStatus();
-		console.log(game.history());
-		game.undo();
 	})
 
+	// Clicking the reset button resets the board to the starting position
+	$('.reset').on("click", function(){
+		game.reset();
+		board.position(game.fen());
+		document.querySelector('.round').innerHTML = "";
+		document.querySelector('.white').innerHTML = "";
+		document.querySelector('.white-elo').innerHTML = "";
+		document.querySelector('.black').innerHTML = "";
+		document.querySelector('.black-elo').innerHTML = "";
+		newHistory = [];
+		newCount = 0;
+		updateStatus();
+	})
+
+	// Clicking the clear button empties the board
+	$('.clear').on("click", function(){
+		game.clear();
+		board.position(game.fen());
+		document.querySelector('.round').innerHTML = "";
+		document.querySelector('.white').innerHTML = "";
+		document.querySelector('.white-elo').innerHTML = "";
+		document.querySelector('.black').innerHTML = "";
+		document.querySelector('.black-elo').innerHTML = "";
+		newHistory = [];
+		newCount = 0;
+		updateStatus();
+	})
+
+	// Clicking back moves backward one move in the currently loaded game
+	$('.back').on("click", function(){
+		if(newCount && newCount > 0){
+		  game.undo();
+		  newCount--;
+		}
+		board.position(game.fen());
+		updateStatus();
+	})
+
+	// Clicking forward moves forward one move in the currently loaded game
+	$('.forward').on("click", function(){
+		if(newCount !== null && newCount < newHistory.length){
+		  game.move(newHistory[newCount]);
+		  newCount++;
+		}
+		board.position(game.fen());
+		updateStatus();
+	})
+
+
+
 })
+
+
+
+
+
+
+
+
+
+
