@@ -78,7 +78,16 @@ $(document).ready(function(){
 	  onSnapEnd: onSnapEnd
 	};
 	board = new ChessBoard('board', cfg);
-
+	
 	updateStatus();
+
+	$('.gamebar').on("click", '.game-link', function(event){
+		event.preventDefault();
+		game.load_pgn($(this).data('pgn'));
+		board.position(game.fen());
+		updateStatus();
+		console.log(game.history());
+		game.undo();
+	})
 
 })

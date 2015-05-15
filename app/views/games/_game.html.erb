@@ -1,1 +1,1 @@
-<li>Round <%= game.round %> <%= game.white %> vs. <%= game.black %></li>
+<li><%= link_to "Round #{game.round}", "#", data: {pgn: game.pgn}, class: "game-link" %> <%= game.white %> vs. <%= game.black %></li>
