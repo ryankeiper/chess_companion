@@ -20,7 +20,16 @@ class GamesController < ApplicationController
 	end
 
 	def create
-		@game = current_user.tournaments.games.new
+		@user = current_user
+		@tournament = current_user.tournaments.find(params[:tournament_id])
+		@game = @tournament.games.new(game_params)
+		@game.save!
+
+		respond_to do |format|
+		  format.html {redirect_to user_tournaments_path(current_user)}
+		  format.json {render json: @game}
+		  format.js
+		end
 	end
 
 	def edit
@@ -32,7 +41,21 @@ class GamesController < ApplicationController
 	end
 
 	def destroy
-		@game = current_user.tournaments.games.find(params[:id])
+		@user = current_user
+		@tournament = current_user.tournaments.find(params[:tournament_id])
+		@game = @tournament.games.find(params[:id])
+		@game.destroy
+
+		respond_to do |format|
+		  format.html {redirect_to user_tournaments_path}
+		  format.js   
+		end
+	end
+
+	private
+
+	def game_params
+		params.require(:game).permit(:round, :white, :white_rating, :black, :black_rating, :pgn)
 	end
 
 end

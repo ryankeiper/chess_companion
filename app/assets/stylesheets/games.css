@@ -12,3 +12,11 @@
 	width: 400px;
 	float: right;
 }
+
+.new-game {
+	display: none;
+}
+
+.pgn {
+	display: none;
+}

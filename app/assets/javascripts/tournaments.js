@@ -23,8 +23,8 @@ $(document).ready(function(){
 	// Makes each tournament link transition from tournament to game view
 	$('.sidebar').on("click", '.tournament', function(event){
 		event.preventDefault();
+		$('.sidebar').toggle();
 		$('.gamebar').fadeToggle();
-		$('.sidebar').fadeToggle();
 	})
 
 	// On form submission, updates database with new tournament, and

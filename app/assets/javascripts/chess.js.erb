@@ -70,6 +70,7 @@ $(document).ready(function(){
 	  statusEl.html(status);
 	  fenEl.html(game.fen());
 	  pgnEl.html(game.pgn());
+	  $('.pgn').attr("value", document.querySelector('#pgn').innerHTML);
 	};
 
 	var cfg = {

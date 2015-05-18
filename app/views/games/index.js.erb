@@ -3,3 +3,7 @@ $(".gamebar ol").prepend('<p><a href="#" class="back-tourn">Back to tournaments 
 $(".gamebar ol").prepend('<p><%= @tournament.location %>, <%= @tournament.date %></p>')
 $(".gamebar ol").prepend('<h3><%= @tournament.event %></h3>')
 $(".gamebar ol").append('<%= j render partial: "games/game", collection: @games %>');
+
+$(".gamebar").append('<p>Add a <%= link_to "game", "#", id: "game-link" %> to this tournament?</p>');
+
+$(".gamebar").append('<%=j render partial: "form" %>');

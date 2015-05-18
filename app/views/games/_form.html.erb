@@ -1,0 +1,25 @@
+<%= form_for [@user, @tournament, @tournament.games.new], html: {class: "new-game"}, remote: true do |f| %>
+  
+    <%= f.label :round %>
+    <%= f.text_field :round, class: "game-field" %><br>
+
+    <%= f.label :white %>
+    <%= f.text_field :white, class: "game-field" %><br>
+
+    <%= f.label :white_rating %>
+    <%= f.text_field :white_rating, class: "game-field" %><br>
+
+    <%= f.label :black %>
+    <%= f.text_field :black, class: "game-field" %>
+
+    <%= f.label :black_rating %>
+    <%= f.text_field :black_rating, class: "game-field" %><br>
+
+    <p>Enter moves on the chessboard to be stored to this game</p>
+
+    <%= f.label :pgn, class: "pgn" %>
+    <%= f.text_field :pgn, class: "game-field pgn" %><br>
+
+    <%= f.submit "Save", id: "submit" %>
+  
+<% end %>
