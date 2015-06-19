@@ -8,11 +8,15 @@ $(document).ready(function(){
 		$('.sidebar').fadeToggle();
 		$('.gamebar').empty();
 		$('.gamebar').append('<ol />');
+		$('.gamebar').append('<div />');
 	})
 
 	$('.gamebar').on("click", '#game-link', function(event){
 		event.preventDefault();
 		$('.new-game').fadeToggle();
+		$('body, html').animate({
+		    'scrollTop': $('.gamebar').offset().top
+		}, 500);
 	})
 
 	// Button to delete a game from the list and database

@@ -1,4 +1,4 @@
 <!-- Generates each tournament in the list as a link to the games under that tournament -->
 <li>Event: <%= link_to tournament.event, user_tournament_games_path(@user, tournament), remote: true, class: "tournament" %>
-	<%= button_to "delete", user_tournament_path(@user, tournament), method: :delete, class: "del-tourn" %>
+	<%= link_to "delete", user_tournament_path(@user, tournament), method: :delete, class: "del-tourn" %>
 </li>

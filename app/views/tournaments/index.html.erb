@@ -1,34 +1,36 @@
-<div class="container">
-  <div class="sidebar">
-    <ol class="tournaments">
-  	<%= render @tournaments %>
-    </ol>
+<div class="page">
+  <div class="left-panel col-sm-4">
+    <div class="sidebar col-sm-12">
+      <h3>List of Tournaments</h3>
+      <ol class="tournaments">
+    	<%= render @tournaments %>
+      </ol>
 
-    <p>Add a <%= link_to "new tournament?", "#", id: "tourn-link" %></p>
+      <p>Add a <%= link_to "new tournament?", "#", id: "tourn-link" %></p>
 
-    <%= form_for [current_user, current_user.tournaments.new], html: {class: 'new-tourn'}, remote: true do |f| %>
-    	
-    		<%= f.label :event %>
-  		  <%= f.text_field :event, class: "tournament-field" %><br>
+      <%= form_for [current_user, current_user.tournaments.new], html: {class: 'new-tourn'}, remote: true do |f| %>
+      	
+      		<%= f.label :event %>
+    		  <%= f.text_field :event, class: "tournament-field" %><br>
 
-  		  <%= f.label :location %>
-  		  <%= f.text_field :location, class: "tournament-field" %><br>
+    		  <%= f.label :location %>
+    		  <%= f.text_field :location, class: "tournament-field" %><br>
 
-  		  <%= f.label :date %>
-  		  <%= f.text_field :date, class: "tournament-field" %>
+    		  <%= f.label :date %>
+    		  <%= f.text_field :date, class: "tournament-field" %>
 
-  		  <%= f.submit 'Save', id: 'submit' %>
-    	
-    <% end %>
-    
+    		  <%= f.submit 'Save', id: 'submit' %>
+      	
+      <% end %>
+      
+    </div>
+
+    <div class="gamebar col-sm-12">
+      <ol></ol>
+      <div></div>
+    </div>
   </div>
-
-  <div class="gamebar">
-    <ol></ol>
-    
-  </div>
-
-  <div class="game-board">
+  <div class="game-board col-sm-8">
 
     <%= render "games/game_board" %>
 

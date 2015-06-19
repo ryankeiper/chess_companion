@@ -1,3 +1,8 @@
 .secret {
 	display: none;
 }
+
+.sign-out {
+	text-align: right;
+	background-color: white;
+}

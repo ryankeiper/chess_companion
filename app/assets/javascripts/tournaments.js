@@ -9,7 +9,7 @@ $(document).ready(function(){
 	// Button to delete a tournament from the list and database
 	$('.tournaments').on("click",".del-tourn", function(event){
 		event.preventDefault();
-		$(this).parent().parent().fadeToggle();
+		$(this).parent().fadeToggle();
 		$.ajax({
 			url: $(this).parent().attr('action'),
 			type: 'POST',

@@ -1,22 +1,46 @@
 #board {
-	width: 300px;
+	width: 330px;
+	height: auto;
+}
+
+#chess {
+	color: white;
+}
+
+.reset,
+.back,
+.forward,
+.clear {
+	color: black;
 }
 
 .gamebar {
+	position: absolute;
 	display: none;
-	width: 450px;
-	float: left;
+	white-space: nowrap;
+	overflow: auto;
+	background-color: white;
 }
 
-.game-board {
-	width: 400px;
-	float: right;
+ol {
+	padding-left: 12px;
 }
 
-.new-game {
+.new-game,
+li .del-game {
 	display: none;
+}
+
+li:hover .del-game {
+	display: inline;
 }
 
 .pgn {
 	display: none;
+}
+
+@media (min-width: 768px) {
+    .board-with-info {
+        position: fixed;
+    }
 }
